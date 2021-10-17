@@ -16,7 +16,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    ResponsiveInfo responsive = ResponsiveInfo(context);
+    //ResponsiveInfo responsive = ResponsiveInfo(context);
     return MobileScaffold(
         extendedBar: Container(
           height: 40,
@@ -24,31 +24,42 @@ class _HomeViewState extends State<HomeView> {
           color: Colors.amber[200],
         ),
         appBar: AppBar(elevation: 0, title: Text(widget.title)),
-        body: ListView(children: [
-          //SizedBox(height: 10),
-          Container(
-            color: Colors.amber[200],
-            child: Padding(
-              padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-              child: Row(
-                children: [
-                  const Text('Projetos',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                      )),
-                  const Spacer(),
-                  InkButton(
-                      child: const Text('novo'),
-                      onTap: () {
-                        Get.to(() => const ProjetoView(
-                              editing: false,
-                            ));
-                      }),
-                ],
+        body: Column(
+          children: [
+            ListView(children: [
+              Container(
+                color: Colors.amber[200],
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                  child: Row(
+                    children: [
+                      const Text('Projetos',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                          )),
+                      const Spacer(),
+                      InkButton(
+                          child: const Text('novo'),
+                          onTap: () {
+                            Get.to(() => const ProjetoView(
+                                  editing: false,
+                                ));
+                          }),
+                    ],
+                  ),
+                ),
               ),
+            ]),
+            MobileMenuBox(
+              choices: [
+                TabChoice(
+                  label: 'Novo',
+                  child: Container(),
+                ),
+              ],
             ),
-          ),
-        ]));
+          ],
+        ));
   }
 }

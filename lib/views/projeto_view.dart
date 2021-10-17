@@ -251,7 +251,8 @@ class _ProjetoViewState extends State<ProjetoView> {
     ImagePicker.factorResize(original!, imageWidth).then((fator) {
       imageSize = Size(
           imageWidth.toDouble(), (fator.y! * fator.factor!).toInt().toDouble());
-      print([imageSize, fator.toJson()]);
+
+      //print([imageSize, fator.toJson()]);
 
       ImagePicker.resize(
               original!, imageSize!.width.toInt(), imageSize!.height.toInt())
